@@ -149,3 +149,9 @@ def process_drawing_delta(req: DiffRequest):
         }
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+        # Add this at the very bottom of worker.py
+if __name__ == "__main__":
+    import uvicorn
+    import os
+    port = int(os.environ.get("PORT", 10000))
+    uvicorn.run("worker:app", host="0.0.0.0", port=port)
