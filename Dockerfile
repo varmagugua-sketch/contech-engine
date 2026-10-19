@@ -18,6 +18,6 @@ RUN pip install --no-cache-dir \
 
 COPY worker.py /app/worker.py
 
-EXPOSE 8080
+EXPOSE 10000
 
-CMD ["uvicorn", "worker:app", "--host", "0.0.0.0", "--port", "8080"]
+CMD ["python", "worker.py"]
